@@ -1,0 +1,51 @@
+.header {
+    background-color: #424242;
+    padding: 15px 60px;
+    display: flex;
+    font-weight: 400;
+    color: #FFFFFF;
+    font-size: 18px;
+    align-items: center;
+}
+
+.header__logo {
+    display: inline-block;
+}
+
+.header__logout {
+    display: flex;
+    gap: 8px;
+    cursor: pointer;
+    align-items: center;
+}
+
+.header__notifications {
+    transform: translateY(3px);
+    margin-right: 35px;
+}
+
+.header__user {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+    margin-right: 80px;
+    align-items: center;
+}
+
+@media(max-width: 1600px) {
+    .header__logo svg {
+        width: 180px;
+        height: 25px;
+    }
+
+    .header__logout svg,
+    .header__notifications svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .header__user svg {
+        width: 30px;
+        height: 30px;
+    }
+}
