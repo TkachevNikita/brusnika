@@ -1,0 +1,46 @@
+.form__group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 75%;
+    margin-top: 40px;
+}
+
+.form__button {
+    align-self: center;
+    margin-top: 20px;
+}
+
+label {
+    font-size: 20px;    
+    font-weight: 500;
+    color: #565656;
+}
+
+input {
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.24);
+    background: rgba(0, 0, 0, 0.04);
+    padding: 12px 40px;
+    color: #565656;
+    font-size: 16px;
+    font-weight: 400;
+    width: 600px;
+}
+
+.form__button {
+    padding: 10px 30px;
+    font-weight: 700;
+    font-size: 18px;
+    color: #FFFFFF;
+    background-color: #EF3D24;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+}

@@ -13,6 +13,18 @@
     border-top: 1px solid #FFFFFF;
 }
 
+.sidebar__item:nth-child(1) {
+    border-top: none;
+}
+
 .sidebar__linq {
     color: #000000;
+}
+
+.sidebar__item-active {
+    background-color: #424242;
+}
+
+.sidebar__item-active .sidebar__linq {
+    color: #FFFFFF;
 }

@@ -1,14 +1,19 @@
 import React from 'react'
 import './styles/AssetItem.css'
+import AssetItemModel from '../models/AssetItemModel'
 
-export const AssetItem = () => {
+interface AssetItemProps {
+    viewModel: AssetItemModel
+}
+
+export const AssetItem = ({viewModel}: AssetItemProps) => {
   return (
     <tr>
-        <td>01123</td>
-        <td>Юр. лицо - ООО “Брусника”</td>
-        <td>Иванов Иван Иванович</td>
-        <td>Жилищный</td>
-        <td>Переговоры</td>
+        <td>{viewModel.id}</td>
+        <td>{viewModel.owner}</td>
+        <td>{viewModel.name}</td>
+        <td>{viewModel.type}</td>
+        <td>{viewModel.stage}</td>
     </tr>
   )
 }

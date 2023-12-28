@@ -1,35 +1,37 @@
-import React from 'react'
-import './styles/SideBar.css'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import './styles/SideBar.css';
+import { NavLink, useLocation } from 'react-router-dom';
 
 export const SideBar = () => {
+  const location = useLocation();
+
   return (
     <div className='sidebar'>
-        <div className="sidebar__item">
-            <Link to="assets" className="sidebar__linq">
+        <div className={`sidebar__item ${location.pathname === "/assets" ? 'sidebar__item-active' : ''}`}>
+            <NavLink to="assets" className="sidebar__linq">
                 Активы
-            </Link>
+            </NavLink>
         </div>
-        <div className="sidebar__item">
-            <Link to="#" className="sidebar__linq">
+        <div className={`sidebar__item ${location.pathname === "/add" ? 'sidebar__item-active' : ''}`}>
+            <NavLink to="add" className="sidebar__linq">
                 Добавление актива
-            </Link>
+            </NavLink>
         </div>
-        <div className="sidebar__item">
-            <Link to="archive" className="sidebar__linq">
+        <div className={`sidebar__item ${location.pathname === "/archive" ? 'sidebar__item-active' : ''}`}>
+            <NavLink to="archive" className="sidebar__linq">
                 Архив активов
-            </Link>
+            </NavLink>
         </div>
-        <div className="sidebar__item">
-            <Link to="history" className="sidebar__linq">
+        <div className={`sidebar__item ${location.pathname === "/history" ? 'sidebar__item-active' : ''}`}>
+            <NavLink to="history" className="sidebar__linq">
                 История
-            </Link>
+            </NavLink>
         </div>
-        <div className="sidebar__item">
-            <Link to="support" className="sidebar__linq">
+        <div className={`sidebar__item ${location.pathname === "/support" ? 'sidebar__item-active' : ''}`}>
+            <NavLink to="support" className="sidebar__linq">
                 Поддержка
-            </Link>
+            </NavLink>
         </div>
     </div>
-  )
+  );
 }

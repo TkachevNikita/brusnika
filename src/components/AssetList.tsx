@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { AssetItem } from './AssetItem'
 import './styles/AssetList.css'
+import AssetListViewModel from '../viewmodels/AssetListViewModel'
+import AssetItemModel from '../models/AssetItemModel'
 
-export const AssetList = () => {
+interface AssetListProps {
+    assets: AssetItemModel[]
+}
+
+export const AssetList = ({assets}: AssetListProps) => {
+
   return (
     <table>
         <thead>
@@ -15,12 +22,7 @@ export const AssetList = () => {
             </tr>
         </thead>
         <tbody>
-            <AssetItem/>
-            <AssetItem/>
-            <AssetItem/>
-            <AssetItem/>
-            <AssetItem/>
-            <AssetItem/>
+            {assets.length > 0 ? assets.map(asset => <AssetItem key={asset.id} viewModel={asset}/>) : 'as'}
         </tbody>
     </table>
   )
