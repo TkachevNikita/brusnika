@@ -4,7 +4,7 @@ import AssetItemModel from "../models/AssetItemModel";
 
 export default class AssetService {
     public async fetchAllAssets(): Promise<AxiosResponse<IAsset[]>> {
-        return axios.get('http://localhost/landassets');
+        return axios.get<IAsset[]>('http://localhost/landassets');
     }
 
     public postAsset(asset: AssetItemModel): void {

@@ -4,6 +4,8 @@ import { AppLayout } from './layouts/AppLayout';
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import { AssetsPage } from './pages/AssetsPage';
 import { NewAssetPage } from './pages/NewAssetPage';
+import AuthLayout from './layouts/AuthLayout';
+import LoginPage from './pages/LoginPage';
 
 function App() {
   const router = createBrowserRouter(
@@ -12,6 +14,10 @@ function App() {
         <Route element={<AppLayout/>}>
           <Route path="/assets" element={<AssetsPage/>}/>
           <Route path="/add" element={<NewAssetPage/>}/>
+        </Route>
+        <Route element={<AuthLayout/>}>
+          <Route path="/login" element={<LoginPage/>}/>
+          <Route path="/register" element={<NewAssetPage/>}/>
         </Route>
       </Route>
     )
