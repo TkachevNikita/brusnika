@@ -1,0 +1,30 @@
+.sort-input {
+    padding: 8px 12px;
+    padding-left: 36px;
+    border: none;
+    border: 1px solid rgba(20, 25, 26, 0.12);
+    border-radius: 4px;
+}
+
+.sort-input::placeholder,
+.sort-input {
+    color: #8A8C8C;
+}
+
+.input-label:before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 0px;
+    bottom: 0;
+    width: 20px;
+    background: url('../../../../assets/Group\ 86.svg') center / contain no-repeat;
+  }
+
+.input-label {
+    position: relative;
+}
+
+.sort-input:focus{
+    outline: none;
+}

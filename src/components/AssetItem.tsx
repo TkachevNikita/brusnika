@@ -11,9 +11,9 @@ export const AssetItem = ({viewModel}: AssetItemProps) => {
     <tr>
         <td>{viewModel.id}</td>
         <td>{viewModel.owner}</td>
-        <td>{viewModel.name}</td>
+        <td>{viewModel.fullname}</td>
         <td>{viewModel.type}</td>
-        <td>{viewModel.stage}</td>
+        <td>{viewModel.dealStage}</td>
     </tr>
   )
 }

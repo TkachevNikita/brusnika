@@ -1,17 +1,19 @@
 import { IAsset } from "../interfaces/IAsset";
 
 export default class AssetItemModel {
-    public readonly name: string;
-    public readonly id: number;
+    public readonly fullname: string;
+    public id?: number;
     public readonly owner: string;
-    public readonly type: string;
-    public readonly stage: string;
+    public readonly type: number;
+    public readonly dealStage: number;
+    public readonly objectName: string;
 
     constructor(asset: IAsset) {
-        this.name = asset.name;
+        this.fullname = asset.fullname;
         this.id = asset.id;
         this.owner = asset.owner;
         this.type = asset.type;
-        this.stage = asset.stage;
+        this.dealStage = asset.dealStage;
+        this.objectName = asset.objectName;
     }
 }

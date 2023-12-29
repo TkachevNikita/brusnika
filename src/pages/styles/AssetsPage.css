@@ -20,3 +20,12 @@
     color: #FFFFFF;
     border-radius: 50%;
 }
+
+.assets__title {
+    margin-bottom: 30px;
+}
+
+.assets__sort {
+    display: flex;
+    gap: 30px;
+}

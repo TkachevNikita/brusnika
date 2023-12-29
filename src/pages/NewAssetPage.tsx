@@ -1,42 +1,70 @@
-import React, { FormEvent, useState } from 'react'
-import { MyInput } from '../components/UI/input/MyInput'
+import React, { useMemo } from 'react'
 import './styles/NewAssetPage.css'
-import { MyButton } from '../components/UI/button/MyButton'
+import { Input } from '../components/UI/input/Input';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { IAsset } from '../interfaces/IAsset';
+import { NewAssetPageViewModel } from '../viewmodels/NewAssetPageViewModel';
+import AssetService from '../services/AssetService';
+import Snackbar from '../components/UI/snackbar/Snackbar';
 
 export const NewAssetPage = () => {
+    const assetService = useMemo(() => new AssetService(), []);
+    const newAssetPageViewModel = useMemo(() => new NewAssetPageViewModel(assetService), [assetService]);
+    const { register, handleSubmit } = useForm<IAsset>();
 
-    const [owner, setOwner] = useState('');
-    const [name, setName] = useState('');
-    const [type, setType] = useState('');
-    const [stage, setStage] = useState('')
-
-    const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        console.log(123);
+    const onSubmit: SubmitHandler<IAsset> = (data) => {
+        newAssetPageViewModel.createAsset(
+            {
+                owner: data.owner,
+                fullname: data.fullname,
+                objectName: data.objectName,
+                type: Number(data.type),
+                dealStage: Number(data.dealStage),
+            }
+        )
     }
-
 
     return (
         <div className="new">
+            <Snackbar/>
             <h2 className="new__title">
                 Добавление актива
             </h2>
-            <form onSubmit={(e) => onSubmit(e)}>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form__group">
                     <label>Собственник</label>
-                    <input onChange={(e) => setOwner(e.target.value)} type="text"/>
+                    <Input
+                        controlName="owner" 
+                        register={register}
+                    />
                 </div>
                 <div className="form__group">
                     <label>Фамилия Имя Отчество</label>
-                    <input onChange={(e) => setName(e.target.value)} type="text"/>
+                    <Input
+                        controlName="fullname" 
+                        register={register}
+                    />
                 </div>
                 <div className="form__group">
                     <label>Тип</label>
-                    <input onChange={(e) => setType(e.target.value)} type="text"/>
+                    <Input
+                        controlName="type" 
+                        register={register}
+                    />
                 </div>
                 <div className="form__group">
                     <label>Этап сделки</label>
-                    <input onChange={(e) => setStage(e.target.value)} type="text"/>
+                    <Input
+                        controlName="dealStage" 
+                        register={register}
+                    />
+                </div>
+                <div className="form__group">
+                    <label>Этап сделки</label>
+                    <Input
+                        controlName="objectName" 
+                        register={register}
+                    />
                 </div>
                 <button className="form__button">Добавить</button>
             </form>

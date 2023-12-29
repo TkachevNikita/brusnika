@@ -22,7 +22,7 @@ export const AssetList = ({assets}: AssetListProps) => {
             </tr>
         </thead>
         <tbody>
-            {assets.length > 0 ? assets.map(asset => <AssetItem key={asset.id} viewModel={asset}/>) : 'as'}
+            {assets.map(asset => <AssetItem key={asset.id} viewModel={asset}/>)}
         </tbody>
     </table>
   )
