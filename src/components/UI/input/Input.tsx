@@ -5,7 +5,7 @@ import { IAsset } from '../../../interfaces/IAsset';
 
 interface MyInputProps {
     placeholder?: string;
-    register: UseFormRegister<IAsset>;
+    register?: UseFormRegister<IAsset>;
     controlName: "id" | "owner" | "fullname" | "type" | "dealStage" | "objectName"
 }
 
@@ -15,7 +15,7 @@ export const Input = ({placeholder, register, controlName}: MyInputProps) => {
     <input 
       className='MyInput' 
       placeholder={placeholder}
-      {...register(controlName)}
+      {...register? register(controlName) : null}
     />
   )
 }

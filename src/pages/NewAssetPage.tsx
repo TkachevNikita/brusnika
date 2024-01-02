@@ -5,7 +5,6 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { IAsset } from '../interfaces/IAsset';
 import { NewAssetPageViewModel } from '../viewmodels/NewAssetPageViewModel';
 import AssetService from '../services/AssetService';
-import Snackbar from '../components/UI/snackbar/Snackbar';
 
 export const NewAssetPage = () => {
     const assetService = useMemo(() => new AssetService(), []);
@@ -26,7 +25,6 @@ export const NewAssetPage = () => {
 
     return (
         <div className="new">
-            <Snackbar/>
             <h2 className="new__title">
                 Добавление актива
             </h2>
@@ -60,7 +58,7 @@ export const NewAssetPage = () => {
                     />
                 </div>
                 <div className="form__group">
-                    <label>Этап сделки</label>
+                    <label>Имя объекта</label>
                     <Input
                         controlName="objectName" 
                         register={register}

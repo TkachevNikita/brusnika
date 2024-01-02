@@ -2,7 +2,7 @@ export interface IAsset {
     id?: number,
     owner: string,
     fullname: string,
-    type: number
+    type: number,
     dealStage: number,
     objectName: string
 }

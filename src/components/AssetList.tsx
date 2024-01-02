@@ -1,14 +1,22 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, SetStateAction } from 'react'
 import { AssetItem } from './AssetItem'
 import './styles/AssetList.css'
 import AssetListViewModel from '../viewmodels/AssetListViewModel'
 import AssetItemModel from '../models/AssetItemModel'
+import { IAsset } from '../interfaces/IAsset'
 
 interface AssetListProps {
-    assets: AssetItemModel[]
+    assets: AssetItemModel[],
+    setModal: React.Dispatch<SetStateAction<boolean>>,
+    setAsset: React.Dispatch<SetStateAction<AssetItemModel | undefined>>
 }
 
-export const AssetList = ({assets}: AssetListProps) => {
+export const AssetList = ({assets, setModal, setAsset}: AssetListProps) => {
+
+    const handleModal = (asset: AssetItemModel): void => {
+        setAsset(asset);
+        setModal(true);
+    }
 
   return (
     <table>
@@ -22,7 +30,7 @@ export const AssetList = ({assets}: AssetListProps) => {
             </tr>
         </thead>
         <tbody>
-            {assets.map(asset => <AssetItem key={asset.id} viewModel={asset}/>)}
+            {assets.map(asset => <AssetItem currentAsset={setAsset} onClick={() => handleModal(asset)} key={asset.id} viewModel={asset}/>)}
         </tbody>
     </table>
   )
