@@ -4,10 +4,15 @@
     bottom: 0;
     right: 0;
     left: 0;
-    display: none;
     width: 100%;
     background: rgba(0, 0, 0, 0.5);
     z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal__content {
@@ -17,9 +22,8 @@
 }
 
 .modal-active {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    opacity: 1;
+    pointer-events: all;
 }
 
 .close {

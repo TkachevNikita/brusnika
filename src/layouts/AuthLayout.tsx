@@ -1,6 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import './styles/AuthLayout.css'
+import {observer} from "mobx-react-lite";
 
 const AuthLayout = () => {
   return (
@@ -10,4 +11,4 @@ const AuthLayout = () => {
   )
 }
 
-export default AuthLayout
+export default observer(AuthLayout)

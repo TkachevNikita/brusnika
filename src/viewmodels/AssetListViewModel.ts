@@ -6,8 +6,8 @@ export default class AssetListViewModel {
 
     constructor(private _assetService: AssetService) {}
 
-    public async loadAssetDisplayedItems(): Promise<void> {
-        const assets = await this._assetService.fetchAllAssets();
+    public async loadAssetDisplayedItems(filter?: string): Promise<void> {
+        const assets = await this._assetService.fetchAllAssets(filter);
         this.assetDisplayedItems = assets.data.map(asset => new AssetItemModel(asset));
     }
 }

@@ -1,4 +1,4 @@
-.sort-input {
+.input {
     padding: 8px 12px;
     padding-left: 36px;
     border: none;
@@ -6,12 +6,12 @@
     border-radius: 4px;
 }
 
-.sort-input::placeholder,
-.sort-input {
+.input::placeholder,
+.input {
     color: #8A8C8C;
 }
 
-.input-label:before {
+.label:before {
     content: "";
     position: absolute;
     left: 10px;
@@ -21,10 +21,10 @@
     background: url('../../../assets/Group\ 86.svg') center / contain no-repeat;
   }
 
-.input-label {
+.label {
     position: relative;
 }
 
-.sort-input:focus{
+.input:focus{
     outline: none;
 }

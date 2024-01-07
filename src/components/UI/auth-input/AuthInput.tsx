@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/AuthInput.css'
+import classes from '../styles/AuthInput.module.css'
 import { UseFormRegister } from 'react-hook-form';
 import { LoginRequest } from '../../../interfaces/request/LoginRequest';
 
@@ -12,7 +12,7 @@ interface AuthInputProps {
 const AuthInput: React.FC<AuthInputProps> = ({placeholder, register, controlName}: AuthInputProps) => {
   return (
     <input
-      className="auth__input" 
+      className={classes.input}
       placeholder={placeholder}
       {...register(controlName)}
       type={controlName === 'email' ? 'email' : 'password'}

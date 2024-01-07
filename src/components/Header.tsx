@@ -1,8 +1,12 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import './styles/Header.css'
 import { redirect } from 'react-router-dom'
+import {Context} from "../index";
+import {observer} from "mobx-react-lite";
 
-export const Header = () => {
+const Header = () => {
+    const {store} = useContext(Context)
+    console.log(1)
   return (
     <header className='header'>
         <div className="header__logo">
@@ -37,12 +41,7 @@ export const Header = () => {
             </defs>
             </svg>
             <div className="header__user-name">
-                {localStorage.getItem('role') === 'Administrator' ?
-                    'Администратор'
-                    :
-                    'Ткачев Никита Олегович'
-                }
-                
+                {store.user.fullname}
             </div>
         </div>
         <div className="header__notifications">
@@ -63,3 +62,5 @@ export const Header = () => {
     </header>
   )
 }
+
+export default observer(Header)

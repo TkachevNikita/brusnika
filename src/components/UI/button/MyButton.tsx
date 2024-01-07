@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import './../styles/MyButton.css'
+import classes from '../styles/MyButton.module.css'
 
 interface MyButtonProps {
     children?: ReactNode;
@@ -8,6 +8,6 @@ interface MyButtonProps {
 
 export const MyButton = ({children, className}: MyButtonProps) => {
   return (
-    <button id='button' className={className}>{children}</button>
+    <button id='button' className={classes.className}>{children}</button>
   )
 }

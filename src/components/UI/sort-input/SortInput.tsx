@@ -1,13 +1,13 @@
 import React from 'react'
-import '../styles/SortInput.css'
+import classes from '../styles/SortInput.module.css'
 
 const SortInput = () => {
 
 
     return (
-        <label className="input-label">
+        <label className={classes.label}>
             <input
-                className="sort-input"
+                className={classes.input}
                 placeholder="Поиск"
             />
         </label>

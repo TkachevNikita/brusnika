@@ -1,6 +1,6 @@
 import React from 'react'
-import './../styles/MyInput.css'
-import { ChangeHandler, RefCallBack, UseFormRegister } from 'react-hook-form';
+import classes from '../styles/MyInput.module.css'
+import { UseFormRegister } from 'react-hook-form';
 import { IAsset } from '../../../interfaces/IAsset';
 
 interface MyInputProps {
@@ -13,7 +13,7 @@ export const Input = ({placeholder, register, controlName}: MyInputProps) => {
 
   return (
     <input 
-      className='MyInput' 
+      className={classes.input}
       placeholder={placeholder}
       {...register? register(controlName) : null}
     />

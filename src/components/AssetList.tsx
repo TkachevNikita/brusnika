@@ -4,6 +4,7 @@ import './styles/AssetList.css'
 import AssetListViewModel from '../viewmodels/AssetListViewModel'
 import AssetItemModel from '../models/AssetItemModel'
 import { IAsset } from '../interfaces/IAsset'
+import Loader from "./UI/loader/Loader";
 
 interface AssetListProps {
     assets: AssetItemModel[],
@@ -30,7 +31,12 @@ export const AssetList = ({assets, setModal, setAsset}: AssetListProps) => {
             </tr>
         </thead>
         <tbody>
-            {assets.map(asset => <AssetItem currentAsset={setAsset} onClick={() => handleModal(asset)} key={asset.id} viewModel={asset}/>)}
+            {
+                assets.length > 0 ?
+                assets.map(asset => <AssetItem currentAsset={setAsset} onClick={() => handleModal(asset)} key={asset.id} viewModel={asset}/>)
+                :
+                <Loader/>
+            }
         </tbody>
     </table>
   )

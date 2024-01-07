@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
-import { AppLayout } from './layouts/AppLayout';
+import AppLayout from './layouts/AppLayout';
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
-import { AssetsPage } from './pages/AssetsPage';
+import AssetsPage from './pages/AssetsPage';
 import { NewAssetPage } from './pages/NewAssetPage';
 import AuthLayout from './layouts/AuthLayout';
 import LoginPage from './pages/LoginPage';
+import {observer} from "mobx-react-lite";
 
 function App() {
   const router = createBrowserRouter(
@@ -29,4 +30,4 @@ function App() {
   );
 }
 
-export default App;
+export default observer(App);

@@ -10,8 +10,8 @@ export default class Store {
         makeAutoObservable(this);
     }
 
-    setAuth(bool: boolean) {
-        this.isAuth = bool;
+    setAuth(isAuth: boolean) {
+        this.isAuth = isAuth;
     }
 
     setUser(user: IUser) {

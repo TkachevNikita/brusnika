@@ -4,8 +4,13 @@ import AssetItemModel from "../models/AssetItemModel";
 import $api from "../http";
 
 export default class AssetService {
-    public async fetchAllAssets(): Promise<AxiosResponse<IAsset[]>> {
-        return $api.get<IAsset[]>('http://localhost/landassets', {});
+    public async fetchAllAssets(filter?: string): Promise<AxiosResponse<IAsset[]>> {
+        let baseUrl = 'http://localhost/landassets'
+
+        if (filter) {
+            baseUrl += `?owner=${filter}`
+        }
+        return $api.get<IAsset[]>(`${baseUrl}`);
     }
 
     public postAsset(asset: IAsset): void {

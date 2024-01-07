@@ -1,16 +1,16 @@
 import React from 'react'
-import '../styles/Snackbar.css'
+import classes from '../styles/Snackbar.module.css'
 
 const Snackbar = () => {
   return (
-    <div className='snackbar'>
-        <h3 className="snackbar__title">
+    <div className={classes.snackbar}>
+        <h3 className={classes.snackbar__title}>
             Добавление актива
         </h3>
-        <div className="snackbar__body">
+        <div className={classes.snackbar__body}>
             Актив был успешно добавлен!
         </div>
-        <button className='snackbar__btn'>
+        <button className={classes.snackbar__btn}>
             Закрыть
         </button>
     </div>

@@ -1,10 +1,11 @@
 import React from 'react'
-import { Header } from '../components/Header'
+import Header  from '../components/Header'
 import { SideBar } from '../components/SideBar'
 import './styles/AppLayout.css'
 import { Outlet } from 'react-router-dom'
+import {observer} from "mobx-react-lite";
 
-export const AppLayout = () => {
+const AppLayout = () => {
   return (
     <div className='app'>
         <Header/>
@@ -17,3 +18,5 @@ export const AppLayout = () => {
     </div>
   )
 }
+
+export default observer(AppLayout)

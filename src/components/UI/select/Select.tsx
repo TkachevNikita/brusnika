@@ -1,9 +1,9 @@
 import React from 'react'
-import '../styles/Select.css'
+import classes from '../styles/Select.module.css'
 
 const Select = () => {
   return (
-    <select className="select">
+    <select className={classes.select}>
         <option value="0">Тип актива</option>
         <option value="1">Жилищный</option>
         <option value="2">Офисный</option>
