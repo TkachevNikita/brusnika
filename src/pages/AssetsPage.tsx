@@ -10,14 +10,14 @@ import Select from '../components/UI/select/Select';
 import AssetModal from '../components/modals/AssetModal';
 import { observer } from "mobx-react-lite";
 import AssetForm from "../components/forms/asset-form/AssetForm";
-import Loader from "../components/UI/loader/Loader";
+import Pagination from "../components/Pagination";
 
 const AssetsPage = () => {
   const assetService = useMemo(() => new AssetService(), []);
   const assetListViewModel = useMemo(() => new AssetListViewModel(assetService), [assetService]);
   const [currentAssetList, setCurrentAssetList] = useState<AssetItemModel[]>([]);
-  const { currentPage, totalPages, goToPage, paginatedItems } = usePagination(currentAssetList, 10);
-  const [filterOwner, setFilterOwner] = useState();
+  const {currentPage, prevPage, nextPage, goToPage, paginatedItems, getTotalPages } = usePagination(currentAssetList, 5);
+  const [filterOwner, setFilterOwner] = useState('');
   const [modal, setModal] = useState(false);
   const [currentAsset, setCurrentAsset] = useState<AssetItemModel>();
 
@@ -26,7 +26,7 @@ const AssetsPage = () => {
     assetListViewModel.loadAssetDisplayedItems(filterOwner).then(() => {
       setCurrentAssetList(assetListViewModel.assetDisplayedItems);
     });
-  }, [assetListViewModel]);
+  }, [assetListViewModel, filterOwner]);
 
   return (
     <div className='assets page'>
@@ -34,32 +34,27 @@ const AssetsPage = () => {
           visible={modal}
           setVisible={setModal}
         >
-
             {
                 currentAsset ? <AssetForm currentAsset={currentAsset} assetService={assetService}/> : <></>
             }
         </AssetModal>
         <div className="assets__header">
-            <h2 className="assets__title">
+            <h2 className="assets__title page-title">
                 Активы
             </h2>
             <div className="assets__sort">
-                <SortInput/>
+                <SortInput filter={setFilterOwner}/>
                 <Select/>
             </div>
         </div>
         <AssetList setAsset={setCurrentAsset} setModal={setModal} assets={paginatedItems}/>
-        <div className="assets__pagination">
-          {[1].map(number => 
-            <button 
-              key={number} 
-              onClick={() => goToPage(number)} 
-              className={currentPage === number ? "assets__pagination-btn-active assets__pagination-btn" : "assets__pagination-btn"}
-            >
-              {number}
-            </button>
-          )}
-        </div>
+        <Pagination
+            getTotalPages={getTotalPages}
+            totalItems={currentAssetList.length}
+            goToPage={goToPage}
+            currentPage={currentPage}
+            prevPage={prevPage}
+            nextPage={nextPage}/>
     </div>
   )
 }

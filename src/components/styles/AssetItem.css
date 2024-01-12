@@ -5,3 +5,7 @@ tr {
 td:not(:last-child) {
     padding-right: 32px;
 }
+
+.asset {
+    cursor: pointer;
+}

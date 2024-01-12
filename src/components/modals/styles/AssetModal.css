@@ -16,9 +16,16 @@
 }
 
 .modal__content {
-    padding: 25px;
+    padding: 25px 50px;
     background: white;
-    border-radius: 8px;
+    border-radius: 32px;
+    width: 600px;
+    transform: scale(0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+.modal__content-active {
+    transform: scale(1) !important;
 }
 
 .modal-active {

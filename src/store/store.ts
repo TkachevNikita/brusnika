@@ -25,7 +25,11 @@ export default class Store {
             this.setAuth(true);
             this.setUser(response.data);
         } catch (e) {
-            console.log(e);
+            throw e;
         }
+    }
+
+    public logout(): void {
+        localStorage.removeItem('token');
     }
 }

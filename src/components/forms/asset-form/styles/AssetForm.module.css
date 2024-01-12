@@ -1,0 +1,20 @@
+.form__label {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.form__group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__title {
+    font-size: 32px;
+    font-weight: 500;
+    align-self: center;
+}
+
+.form {
+    gap: 25px;
+}

@@ -31,3 +31,7 @@ a {
 input:focus {
   outline: none;
 }
+
+.page-title {
+  font-size: 32px;
+}

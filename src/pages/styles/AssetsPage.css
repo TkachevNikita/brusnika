@@ -1,31 +1,6 @@
-.assets__pagination {
-    float: right;
-    display: flex;
-    gap: 10px;
-    margin-top: auto;
-    align-self: flex-end;
-}
-
 .assets {
     display: flex;
     flex-direction: column;
-}
-
-.assets__pagination-btn {
-    border: none;
-    background-color: transparent;
-    color: #565656;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-    width: 21px;
-    height: 21px;
-}
-
-.assets__pagination-btn-active {
-    background-color: #EF3D24;
-    color: #FFFFFF;
-    border-radius: 50%;
 }
 
 .assets__title {
@@ -41,10 +16,4 @@
     display: flex;
     justify-content: center;
     gap: 20px;
-}
-
-.start {
-    color: #EF3D24 !important;
-    border: 2px solid #EF3D24 !important;
-    background-color: white !important;
 }

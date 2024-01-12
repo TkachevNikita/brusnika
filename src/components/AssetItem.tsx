@@ -11,7 +11,7 @@ interface AssetItemProps {
 
 export const AssetItem = ({viewModel, onClick}: AssetItemProps) => {
   return (
-    <tr onClick={() => onClick(viewModel)}>
+    <tr className="asset" onClick={() => onClick(viewModel)}>
         <td>{viewModel.id}</td>
         <td>{viewModel.owner}</td>
         <td>{viewModel.fullname}</td>

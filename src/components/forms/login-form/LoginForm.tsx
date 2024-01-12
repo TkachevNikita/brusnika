@@ -14,8 +14,12 @@ const LoginForm = () => {
     const navigate = useNavigate();
 
     const onSubmit: SubmitHandler<LoginRequest> = async (data) => {
-        await store.login(data.email, data.password);
-        navigate('/assets');
+        try {
+            await store.login(data.email, data.password);
+            navigate('/assets');
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (

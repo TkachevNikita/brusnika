@@ -1,8 +1,8 @@
 import React from 'react';
 import {Input} from "../../UI/input/Input";
-import {AssetDealStage} from "../../../enums/assetDealStage.enum";
 import AssetItemModel from "../../../models/AssetItemModel";
 import AssetService from "../../../services/AssetService";
+import classes from './styles/AssetForm.module.css'
 
 interface AssetFormProps {
     currentAsset: AssetItemModel
@@ -11,37 +11,40 @@ interface AssetFormProps {
 
 const AssetForm = ({currentAsset, assetService}: AssetFormProps) => {
     return (
-        <form style={{width: '100%'}}>
-            <div className="form__group">
-                <label>Собственник</label>
+        <form className={classes.form} style={{width: '100%'}}>
+            <h2 className={classes.form__title}>
+                {currentAsset.objectName}
+            </h2>
+            <div className={classes.form__group}>
+                <label className={classes.form__label}>Собственник</label>
                 <Input
                     placeholder={currentAsset!.owner}
                     controlName="owner"
                 />
             </div>
-            <div className="form__group">
-                <label>Фамилия Имя Отчество</label>
+            <div className={classes.form__group}>
+                <label className={classes.form__label}>Фамилия Имя Отчество</label>
                 <Input
                     placeholder={currentAsset!.fullname}
                     controlName="fullname"
                 />
             </div>
-            <div className="form__group">
-                <label>Тип</label>
+            <div className={classes.form__group}>
+                <label className={classes.form__label}>Тип</label>
                 <Input
                     placeholder={String(currentAsset!.type)}
                     controlName="type"
                 />
             </div>
-            <div className="form__group">
-                <label>Этап сделки</label>
+            <div className={classes.form__group}>
+                <label className={classes.form__label}>Этап сделки</label>
                 <Input
                     placeholder={String(currentAsset!.dealStage)}
                     controlName="dealStage"
                 />
             </div>
-            <div className="form__group">
-                <label>Строение</label>
+            <div className={classes.form__group}>
+                <label className={classes.form__label}>Строение</label>
                 <Input
                     placeholder={currentAsset!.objectName}
                     controlName="objectName"

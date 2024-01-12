@@ -12,7 +12,7 @@ const AssetModal = ({children, visible, setVisible}: AssetModalProps) => {
 
   return (
     <div className={visible ? 'modal modal-active' : 'modal'} onClick={() => setVisible(false)}>
-        <div className="modal__content" onClick={(e) => e.stopPropagation()}>
+        <div className={visible ? 'modal__content modal__content-active' : 'modal__content'} onClick={(e) => e.stopPropagation()}>
             <button onClick={() => setVisible(false)} className="close">
                 &#215;
             </button>

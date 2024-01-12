@@ -1,11 +1,25 @@
 .snackbar {
     position: fixed;
-    right: 50px;
+    right: -30%;
     box-shadow: 0px 4px 16px 0px rgba(20, 25, 26, 0.08);
-    border-left: 8px solid #9ACA3C;
     padding: 25px;
     border-radius: 8px;
-    background-color: #FFFFFF
+    background-color: #FFFFFF;
+    transition: all 1s ease-in-out;
+    opacity: 0;
+}
+
+.success {
+    border-left: 8px solid #9ACA3C;
+}
+
+.error {
+    border-left: 8px solid #F26651;
+}
+
+.snackbar-show {
+    right: 50px;
+    opacity: 1;
 }
 
 .snackbar__title {
